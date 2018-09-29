@@ -14,26 +14,26 @@
             android:id="@+id/car_imageView"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:src="@mipmap/ic_launcher"
-            android:layout_gravity="center" />
+            android:layout_gravity="center"
+            android:src="@mipmap/ic_launcher"/>
     </FrameLayout>
 
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="10dp"
-        android:layout_weight="7">
+        android:layout_weight="7"
+        android:orientation="vertical"
+        android:padding="10dp">
 
         <TextView
             android:id="@+id/car_name_textview"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Car Name"
             android:fontFamily="sans-serif-condensed"
-            android:textAppearance="?android:textAppearanceMedium"
+            android:gravity="left"
             android:lines="1"
-            android:gravity="left">
+            android:text="Car Name"
+            android:textAppearance="?android:textAppearanceMedium">
 
         </TextView>
 
@@ -41,10 +41,68 @@
             android:id="@+id/car_address_textView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Address"
             android:fontFamily="sans-serif-condensed"
-            android:textAppearance="?android:textAppearanceSmall"
-            android:gravity="left" />
+            android:gravity="left"
+            android:text="Address"
+            android:textAppearance="?android:textAppearanceSmall"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/car_engine_textView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="sans-serif-condensed"
+                    android:text="Engine : CE"
+                    android:textAppearance="?android:textAppearanceSmall"/>
+
+                <TextView
+                    android:id="@+id/car_enterior_textView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="sans-serif-condensed"
+                    android:gravity="left"
+                    android:text="Enterior : GOOD"
+                    android:textAppearance="?android:textAppearanceSmall"/>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/car_fuel_textView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="sans-serif-condensed"
+                    android:text="Fuel : 90"
+                    android:textAppearance="?android:textAppearanceSmall"/>
+
+
+                <TextView
+                    android:id="@+id/car_exterior_textView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:fontFamily="sans-serif-condensed"
+                    android:text="Exterior : GOOD"
+                    android:textAppearance="?android:textAppearanceSmall"/>
+            </LinearLayout>
+        </LinearLayout>
 
     </LinearLayout>
 </LinearLayout>

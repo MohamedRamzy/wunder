@@ -16,7 +16,7 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.wunder.test.wunderapp.entity.Car;
+import com.wunder.test.wunderapp.model.Car;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -61,6 +61,7 @@ public class MainActivity extends Activity {
             }
         });
 
+        // TODO can store the list of Cars in SharedPreferences or SQLite database instead of querying them each time from the API
         new MyAsyncTask().execute();
     }
 
@@ -129,9 +130,14 @@ public class MainActivity extends Activity {
 
                     String address  = jObject.getString("address");
 
+                    String carEngine  = jObject.getString("engineType");
+                    String carEnterior  = jObject.getString("interior");
+                    String carExterior  = jObject.getString("exterior");
+                    String carFuel  = jObject.getString("fuel");
+
                     // TODO load other car attributes when used
 
-                    Car car = new Car(name, latitude, longitude, address);
+                    Car car = new Car(name, latitude, longitude, address, carEngine, carEnterior, carExterior, carFuel );
                     carsList.add(car);
 
                     //System.out.println(name +", "+latitude+", "+longitude);
@@ -162,11 +168,21 @@ public class MainActivity extends Activity {
         ImageView carIcon;
         TextView carName;
         TextView carAddress;
+        TextView carEngine;
+        TextView carEnterior;
+        TextView carExterior;
+        TextView carFuel;
+
 
         public ViewHolder(View convertView) {
             this.carIcon = (ImageView) convertView.findViewById(R.id.car_imageView);
             this.carName = (TextView) convertView.findViewById(R.id.car_name_textview);
             this.carAddress = (TextView) convertView.findViewById(R.id.car_address_textView);
+            this.carEngine = (TextView) convertView.findViewById(R.id.car_engine_textView);
+            this.carEnterior = (TextView) convertView.findViewById(R.id.car_enterior_textView);
+            this.carExterior = (TextView) convertView.findViewById(R.id.car_exterior_textView);
+            this.carFuel = (TextView) convertView.findViewById(R.id.car_fuel_textView);
+
         }
     }
 
@@ -202,6 +218,12 @@ public class MainActivity extends Activity {
             }else {
                 holder.carAddress.setText(car.getAddress().substring(0, MAXLEN) + "  ...");
             }
+
+            // TODO add all string literals to strings.xml file
+            holder.carEngine.setText("Engine : " + car.getCarEngineType());
+            holder.carEnterior.setText("Ent. : " + car.getCarEnterior());
+            holder.carExterior.setText("Ext. : " + car.getCarExterior());
+            holder.carFuel.setText("Fuel : "+ car.getCarFuel());
 
             return convertView;
         }

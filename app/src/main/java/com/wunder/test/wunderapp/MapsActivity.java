@@ -11,7 +11,7 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
-import com.wunder.test.wunderapp.entity.Car;
+import com.wunder.test.wunderapp.model.Car;
 
 import java.util.ArrayList;
 

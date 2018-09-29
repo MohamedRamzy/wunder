@@ -1,4 +1,4 @@
-package com.wunder.test.wunderapp.entity;
+package com.wunder.test.wunderapp.model;
 
 import android.os.Parcel;
 import android.os.Parcelable;
@@ -12,19 +12,25 @@ public class Car implements Parcelable{
     private float latitude;
     private float longitude;
     private String address;
+    private String carEngineType;
+    private String carEnterior;
+    private String carExterior;
+    private String carFuel;
     // TODO declare other car attributes when used
-
 
     public Car(){
 
     }
 
-    public Car(String name, float latitude, float longitude, String address){
+    public Car(String name, float latitude, float longitude, String address, String carEngineType, String carEnterior, String carExterior, String carFuel) {
         this.name = name;
         this.latitude = latitude;
         this.longitude = longitude;
         this.address = address;
-        // TODO pass & init other car attributes when used
+        this.carEngineType = carEngineType;
+        this.carEnterior = carEnterior;
+        this.carExterior = carExterior;
+        this.carFuel = carFuel;
     }
 
     public String getName() {
@@ -59,6 +65,38 @@ public class Car implements Parcelable{
         this.address = address;
     }
 
+    public String getCarEngineType() {
+        return carEngineType;
+    }
+
+    public void setCarEngineType(String carEngineType) {
+        this.carEngineType = carEngineType;
+    }
+
+    public String getCarEnterior() {
+        return carEnterior;
+    }
+
+    public void setCarEnterior(String carEnterior) {
+        this.carEnterior = carEnterior;
+    }
+
+    public String getCarExterior() {
+        return carExterior;
+    }
+
+    public void setCarExterior(String carExterior) {
+        this.carExterior = carExterior;
+    }
+
+    public String getCarFuel() {
+        return carFuel;
+    }
+
+    public void setCarFuel(String carFuel) {
+        this.carFuel = carFuel;
+    }
+
     @Override
     public int describeContents() {
         return 0;
@@ -71,8 +109,7 @@ public class Car implements Parcelable{
             car.setName(source.readString());
             car.setLatitude(source.readFloat());
             car.setLongitude(source.readFloat());
-            car.setAddress(source.readString());
-            // TODO use other car attributes as well
+            // TODO use other car attributes as well if needed
             return car;
         }
 
@@ -87,7 +124,6 @@ public class Car implements Parcelable{
         dest.writeString(getName());
         dest.writeFloat(getLatitude());
         dest.writeFloat(getLongitude());
-        dest.writeString(getAddress());
         // TODO use other car attributes as well
     }
 
@@ -98,7 +134,10 @@ public class Car implements Parcelable{
                 ", latitude=" + latitude +
                 ", longitude=" + longitude +
                 ", address='" + address + '\'' +
+                ", carEngineType='" + carEngineType + '\'' +
+                ", carEnterior='" + carEnterior + '\'' +
+                ", carExterior='" + carExterior + '\'' +
+                ", carFuel='" + carFuel + '\'' +
                 '}';
-        // TODO use other car attributes as well
     }
 }
