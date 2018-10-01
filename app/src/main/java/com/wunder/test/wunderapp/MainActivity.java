@@ -61,10 +61,9 @@ public class MainActivity extends Activity {
             }
         });
 
-        // TODO can store the list of Cars in SharedPreferences or SQLite database instead of querying them each time from the API
+        // TODO can store the list of Cars in SharedPreferences or SQLite database instead of querying them each time from the API if they don\t change too much
         new MyAsyncTask().execute();
     }
-
 
     class MyAsyncTask extends AsyncTask<String, String, Void> {
 
